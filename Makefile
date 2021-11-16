@@ -6,8 +6,8 @@ BUILD_DIR := build
 BIN_DIR := bin
 SRC_FILES := $(wildcard $(SRC_DIR)/*.cpp)
 OBJ_FILES := $(patsubst $(SRC_DIR)/%.cpp,$(BUILD_DIR)/%.o,$(SRC_FILES))
-LDFLAGS :=
-CPPFLAGS := 
+LDFLAGS := -L/usr/local/lib -lomp
+CPPFLAGS := -std=c++11 -Wall -O2 -I/usr/local/include -Xpreprocessor -fopenmp
 CXXFLAGS := -std=c++17
 
 ifeq ($(USE_HALIDE), 1)
